@@ -1,5 +1,6 @@
 import os
 import random
+import time
 
 def read_file(filename):
 	list_words = []
@@ -20,7 +21,7 @@ def game(level):
 	os.system('cls' if os.name == 'nt' else 'clear')
 	print('-------')
 	print('LEVEL ' + str(level))
-	print('-------')
+	print('-------\n')
 	while (i < len(list_words)):
 		print('Tebak kata: ' + shuffle_word(list_words[random_num[i]]))
 		is_answer_right = False
@@ -33,15 +34,17 @@ def game(level):
 				print('BENAR! point anda ' + str(score))
 			else:
 				print('SALAH! silahkan coba lagi')
-	print('----------------------------------------')
+	print('\n----------------------------------------')
 	print('Selamat Anda telah menyelesaikan level ' + str(level))
 	print('----------------------------------------')
+	time.sleep(1.5)
 
-level = 1
-MAX_LEVEL = 2
+if __name__ == '__main__':
+	MAX_LEVEL = 3
+	level = 1
 
-os.system('cls' if os.name == 'nt' else 'clear')
-print('Selamat Bermain\n')
-while (level <= MAX_LEVEL):
-	game(level)
-	level += 1
+	os.system('cls' if os.name == 'nt' else 'clear')
+	print('Selamat Bermain\n')
+	while (level <= MAX_LEVEL):
+		game(level)
+		level += 1
